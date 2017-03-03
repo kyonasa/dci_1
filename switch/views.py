@@ -11,14 +11,14 @@ from django.http import HttpResponse
 
 
 def ctunnel(request):
-    host='host2'
+    host='host3'
     args1 = dict(host=Switch.objects.filter(name=host)[0].host,
                  username=Switch.objects.filter(name=host)[0].user,
                  password=Switch.objects.filter(name=host)[0].password,
                  port=830)
     device1=HPCOM7(**args1)
     device1.open()
-    tunnelid='2'
+    tunnelid='5'
     # ping1=Ping(device1,'10.3.214.22')
     tunnel1=Tunnel(device1,tunnelid)
     tunnel.objects.get_or_create(tunelid=tunnelid,
@@ -28,7 +28,7 @@ def ctunnel(request):
     return HttpResponse(str(tunnel1.get_config()['dest']))
 
 def billDepand(request):
-    billid='1'
+    billid='4'
     result='result:'
     try:
         Bill=bill.objects.get(billid=billid)
@@ -91,7 +91,7 @@ def billDepand(request):
 
 def cfg(request):
     try:
-        billid = '3'
+        billid = '4'
         result = 'result:'
         try:
             Bill = bill.objects.get(billid=billid)
